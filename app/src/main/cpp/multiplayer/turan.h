@@ -7,8 +7,8 @@
 
 struct Turan
 {
-    std::string szHost = "84.54.82.234";
-    int iPort = 7777;
+    std::string szHost = "94.136.185.24";
+    int iPort = 7776;
 };
 
 inline Turan GetTuran()
