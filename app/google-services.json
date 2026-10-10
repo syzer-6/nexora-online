@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "889414816454",
+    "project_id": "turan-rp",
+    "storage_bucket": "turan-rp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889414816454:android:dba81133565488b8e77dc7",
+        "android_client_info": {
+          "package_name": "com.turan.game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA16_Uis8a3CgoRL9aytjFL7CagTa6-T9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
