@@ -213,7 +213,7 @@ public class DownloadActivity extends AppCompatActivity {
                 return App.getInstance().URL_CLIENT;
             case 2:
                 String url = App.getInstance().URL_GAME_FILES;
-                return (url != null && !url.isEmpty()) ? url : "https://drive.google.com/uc?export=download&id=1BwMNc3_Qdt-XTb937J6mQ8vqBa6cN0aP";
+                return (url != null && !url.isEmpty()) ? url : "https://github.com/syzer-6/nexora-online/releases/download/v1.0/com.turan.game.zip";
             case 3:
                 return App.getInstance().URL_GAME_FILES_UPDATE;
             default:
