@@ -198,7 +198,7 @@ public class DownloadActivity extends AppCompatActivity {
         String downloadUrl = getDownloadUrl(App.getInstance().downloadID);
         if (downloadUrl == null || downloadUrl.isEmpty()) {
             Utils.writeLog(this, 'e', "error, download URL is null or empty for ID: " + App.getInstance().downloadID);
-            showErrorDialog("DEBUG: URL=" + App.getInstance().URL_GAME_FILES + " ID=" + App.getInstance().downloadID);
+            showErrorDialog("ID=" + App.getInstance().downloadID + " URL_GF=" + App.getInstance().URL_GAME_FILES + " DL=" + getDownloadUrl(App.getInstance().downloadID));
             return;
         }
 
