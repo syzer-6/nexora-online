@@ -211,12 +211,12 @@ public class Utils extends AppCompatActivity {
 
     public static boolean isGameInstalled() {
         String str = GAME_PATH;
-        File file = new File(str + "/anim/");
-        File file2 = new File(str + "/audio/");
-        File file3 = new File(str + "/data/");
-        File file4 = new File(str + "/models/");
-        File file5 = new File(str + "/texdb/");
-        File file6 = new File(str + "/SAMP/", "settings.ini");
+        File file = new File(str + "anim/");
+        File file2 = new File(str + "audio/");
+        File file3 = new File(str + "data/");
+        File file4 = new File(str + "models/");
+        File file5 = new File(str + "texdb/");
+        File file6 = new File(str + "SAMP/", "settings.ini");
         return file.exists() && file2.exists() && file3.exists() && file4.exists() && file5.exists() && file6.exists();
     }
 
