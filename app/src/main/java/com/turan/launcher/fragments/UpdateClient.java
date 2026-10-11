@@ -24,7 +24,7 @@ public class UpdateClient extends Fragment {
         yes = view.findViewById(R.id.button_update);
         yes.setOnClickListener(view12 -> {
             view12.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.button_click));
-            App.getInstance().downloadID = App.INSTALL_TYPE_CLIENT;
+            App.getInstance().downloadID = App.INSTALL_TYPE_GAMEFILES;
             Intent intent = new Intent(getActivity(), DownloadActivity.class);
             intent.putExtras(getActivity().getIntent());
             startActivity(intent);
