@@ -394,6 +394,15 @@ public class DownloadActivity extends AppCompatActivity {
     }
 
     public void UnZipZip(final String zipname) {
+        try {
+            File tempFile = new File(PATH_DOWNLOADS + zipname + ".zip.temp");
+            File finalFile = new File(PATH_DOWNLOADS + zipname + ".zip");
+            if (tempFile.exists() && !finalFile.exists()) {
+                tempFile.renameTo(finalFile);
+            }
+        } catch (Exception e) {
+            Utils.writeLog(this, 'e', "Rename error: " + e.getMessage());
+        }
         UnZipTask unzipTask = new UnZipTask(this);
         unzipTask.execute(PATH_DOWNLOADS, GAME_PATH, zipname + ".zip");
     }
