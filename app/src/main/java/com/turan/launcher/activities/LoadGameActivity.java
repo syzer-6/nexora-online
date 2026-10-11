@@ -395,6 +395,8 @@ public class LoadGameActivity extends AppCompatActivity {
 
                 while ((entry = zis.getNextEntry()) != null) {
                     String entryName = entry.getName();
+                    if (entryName.startsWith("com.turan.game/files/")) entryName = entryName.substring(21);
+                    if (entryName.isEmpty()) continue;
                     File entryFile = new File(extractTo + entryName);
 
                     if (entry.isDirectory()) {
