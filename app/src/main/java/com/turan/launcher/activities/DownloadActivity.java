@@ -212,7 +212,8 @@ public class DownloadActivity extends AppCompatActivity {
             case 1:
                 return App.getInstance().URL_CLIENT;
             case 2:
-                return App.getInstance().URL_GAME_FILES;
+                String url = App.getInstance().URL_GAME_FILES;
+                return (url != null && !url.isEmpty()) ? url : "https://drive.google.com/uc?export=download&id=1BwMNc3_Qdt-XTb937J6mQ8vqBa6cN0aP";
             case 3:
                 return App.getInstance().URL_GAME_FILES_UPDATE;
             default:
