@@ -216,7 +216,9 @@ public class Utils extends AppCompatActivity {
         File file3 = new File(str + "data/");
         File file4 = new File(str + "models/");
         File file5 = new File(str + "texdb/");
-        return file.exists() && file2.exists() && file3.exists() && file4.exists() && file5.exists();
+        boolean result = file.exists() && file2.exists() && file3.exists() && file4.exists() && file5.exists();
+        android.util.Log.d("GAME_CHECK", "anim:"+file.exists()+" audio:"+file2.exists()+" data:"+file3.exists()+" models:"+file4.exists()+" texdb:"+file5.exists()+" result:"+result);
+        return result;
     }
 
     public static void writeLog(Exception e)
