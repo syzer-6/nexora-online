@@ -561,6 +561,8 @@ public class DownloadActivity extends AppCompatActivity {
             if (launcher.exists()) launcher.delete();
             File gameFiles = new File(PATH_DOWNLOADS, "game.zip");
             if (gameFiles.exists()) gameFiles.delete();
+                File gameTemp = new File(PATH_DOWNLOADS, "game.zip.temp");
+                if (gameTemp.exists()) gameTemp.delete();
             File filesUpd = new File(PATH_DOWNLOADS, "files_upd.zip");
             if (filesUpd.exists()) filesUpd.delete();
             File filesGraph = new File(PATH_DOWNLOADS, "files_graph.zip");
