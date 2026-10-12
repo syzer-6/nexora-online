@@ -405,7 +405,7 @@ public class DownloadActivity extends AppCompatActivity {
             Utils.writeLog(this, 'e', "Rename error: " + e.getMessage());
         }
         UnZipTask unzipTask = new UnZipTask(this);
-        unzipTask.execute(PATH_DOWNLOADS, new File(Config.APP_PATH).getParentFile().getParentFile().getAbsolutePath() + "/", zipname + ".zip");
+        unzipTask.execute(PATH_DOWNLOADS, Config.GAME_PATH, zipname + ".zip");
     }
 
     private class UnZipTask extends AsyncTask<String, Integer, Integer> {
@@ -480,6 +480,18 @@ public class DownloadActivity extends AppCompatActivity {
 
                 Toasty.error(DownloadActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
             } else {
+                        // Move extracted files from nested folder to correct location
+                        File nestedDir = new File(Config.GAME_PATH + "com.turan.game/files/");
+                        if (nestedDir.exists()) {
+                            File[] files = nestedDir.listFiles();
+                            if (files != null) {
+                                for (File f2 : files) {
+                                    f2.renameTo(new File(Config.GAME_PATH + f2.getName()));
+                                }
+                            }
+                            new File(Config.GAME_PATH + "com.turan.game/files/").delete();
+                            new File(Config.GAME_PATH + "com.turan.game/").delete();
+                        }
                 // ✅ Settings faylini yangilash
                 File settings = new File(GAME_PATH + "SAMP/settings.ini");
                 if (settings.exists()) {
