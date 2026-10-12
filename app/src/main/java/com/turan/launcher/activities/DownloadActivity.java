@@ -398,7 +398,8 @@ public class DownloadActivity extends AppCompatActivity {
         try {
             File tempFile = new File(PATH_DOWNLOADS + zipname + ".zip.temp");
             File finalFile = new File(PATH_DOWNLOADS + zipname + ".zip");
-            if (tempFile.exists() && !finalFile.exists()) {
+            if (tempFile.exists()) {
+                if (finalFile.exists()) finalFile.delete();
                 tempFile.renameTo(finalFile);
             }
         } catch (Exception e) {
