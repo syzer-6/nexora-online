@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.turan.Config;
 import com.turan.game.BuildConfig;
 
 import androidx.annotation.NonNull;
