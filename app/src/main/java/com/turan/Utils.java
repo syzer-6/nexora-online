@@ -67,12 +67,6 @@ public class Utils extends AppCompatActivity {
             }
         }
 
-        if (App.getInstance().targetGameFilesVersion != TARGET_GAMEFILES_VERSION) {
-            App.getInstance().downloadID = App.INSTALL_TYPE_UPDATE_GAMEFILES;
-            context.startActivity(new Intent(context, DownloadActivity.class));
-            activity.finish();
-            return;
-        }
 
         File settings = new File(Config.GAME_PATH + "SAMP/settings.ini");
         if (settings.exists()) {
