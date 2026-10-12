@@ -404,7 +404,7 @@ public class DownloadActivity extends AppCompatActivity {
             Utils.writeLog(this, 'e', "Rename error: " + e.getMessage());
         }
         UnZipTask unzipTask = new UnZipTask(this);
-        unzipTask.execute(PATH_DOWNLOADS, new File(APP_PATH).getParentFile().getParentFile().getAbsolutePath() + "/", zipname + ".zip");
+        unzipTask.execute(PATH_DOWNLOADS, new File(Config.APP_PATH).getParentFile().getParentFile().getAbsolutePath() + "/", zipname + ".zip");
     }
 
     private class UnZipTask extends AsyncTask<String, Integer, Integer> {
