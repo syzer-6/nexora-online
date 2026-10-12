@@ -483,14 +483,9 @@ public class DownloadActivity extends AppCompatActivity {
                         // Move extracted files from nested folder to correct location
                         File nestedDir = new File(Config.GAME_PATH + "com.turan.game/files/");
                         if (nestedDir.exists()) {
-                            File[] files = nestedDir.listFiles();
-                            if (files != null) {
-                                for (File f2 : files) {
-                                    f2.renameTo(new File(Config.GAME_PATH + f2.getName()));
-                                }
-                            }
-                            new File(Config.GAME_PATH + "com.turan.game/files/").delete();
-                            new File(Config.GAME_PATH + "com.turan.game/").delete();
+                                copyDirectory(nestedDir, new File(Config.GAME_PATH));
+                                deleteDirectory(nestedDir);
+                                new File(Config.GAME_PATH + "com.turan.game/").delete();
                         }
                 // ✅ Settings faylini yangilash
                 File settings = new File(GAME_PATH + "SAMP/settings.ini");
@@ -612,5 +607,38 @@ public class DownloadActivity extends AppCompatActivity {
         // ✅ Notification ni tozalash
         NotificationManager notifManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notifManager.cancelAll();
+    }
+
+    private void copyDirectory(File src, File dst) {
+        File[] files = src.listFiles();
+        if (files == null) return;
+        dst.mkdirs();
+        for (File f : files) {
+            File target = new File(dst, f.getName());
+            if (f.isDirectory()) {
+                copyDirectory(f, target);
+            } else {
+                try {
+                    java.io.FileInputStream in = new java.io.FileInputStream(f);
+                    java.io.FileOutputStream out = new java.io.FileOutputStream(target);
+                    byte[] buf = new byte[4096];
+                    int len;
+                    while ((len = in.read(buf)) > 0) out.write(buf, 0, len);
+                    in.close();
+                    out.close();
+                } catch (Exception e) {
+                    Utils.writeLog(DownloadActivity.this, 'e', "Copy failed: " + f.getName());
+                }
+            }
+        }
+    }
+
+    private void deleteDirectory(File dir) {
+        File[] files = dir.listFiles();
+        if (files != null) for (File f : files) {
+            if (f.isDirectory()) deleteDirectory(f);
+            else f.delete();
+        }
+        dir.delete();
     }
 }
